@@ -1,0 +1,68 @@
+html {
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body, div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin: 2px;
+}
+
+body > div {
+    width: 100%;
+}
+
+div {
+    border: 0 solid rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    line-height: 0;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div.styled {
+    border-width: 30px;
+    padding: 2px;
+}
+
+div.styled:empty {
+    border-width: 15px;
+    padding: 0;
+}
+
+/* Generated via
+   http://jsfiddle.net/cowboy/wsw0rmeh/show/
+   https://twitter.com/cowboy/status/499972839723003904 */
+@-webkit-keyframes bgcolors {
+  0%,100% { background: hsl(0, 90%, 60%); }
+  10% { background: hsl(36, 90%, 60%); }
+  20% { background: hsl(72, 90%, 60%); }
+  30% { background: hsl(108, 90%, 60%); }
+  40% { background: hsl(144, 90%, 60%); }
+  50% { background: hsl(180, 90%, 60%); }
+  60% { background: hsl(216, 90%, 60%); }
+  70% { background: hsl(252, 90%, 60%); }
+  80% { background: hsl(288, 90%, 60%); }
+  90% { background: hsl(324, 90%, 60%); }
+}
+@keyframes bgcolors {
+  0%,100% { background: hsl(0, 90%, 60%); }
+  10% { background: hsl(36, 90%, 60%); }
+  20% { background: hsl(72, 90%, 60%); }
+  30% { background: hsl(108, 90%, 60%); }
+  40% { background: hsl(144, 90%, 60%); }
+  50% { background: hsl(180, 90%, 60%); }
+  60% { background: hsl(216, 90%, 60%); }
+  70% { background: hsl(252, 90%, 60%); }
+  80% { background: hsl(288, 90%, 60%); }
+  90% { background: hsl(324, 90%, 60%); }
+}
