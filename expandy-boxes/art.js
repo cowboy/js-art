@@ -7,7 +7,8 @@ function add() {
   if (bodyHeight > 2 * windowHeight) {
     reset();
   }
-  var e = $('<div/>').appendTo(s[~~(Math.random()*(s.length-1))]);
+  var method = Math.random() > 0.5 ? 'appendTo' : 'prependTo';
+  var e = $('<div/>')[method](s[~~(Math.random()*(s.length-1))]);
   s.push(e);
   requestAnimationFrame(function() {
     e.addClass('styled');
