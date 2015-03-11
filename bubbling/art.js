@@ -2,11 +2,6 @@
 // http://twitter.com/cowboy/status/65845594400362496
 var s;
 function add() {
-  var bodyHeight = document.body.scrollHeight;
-  var windowHeight = window.innerHeight;
-  if (bodyHeight > 2 * windowHeight) {
-    reset();
-  }
   var method = Math.random() > 0.5 ? 'appendTo' : 'prependTo';
   var e = $('<div/>')[method](s[~~(Math.random()*(s.length-1))]);
   s.push(e);
@@ -20,16 +15,26 @@ function reset() {
   $('body').empty();
 }
 
-requestAnimationFrame(function scroll() {
+reset();
+
+var delay = 0;
+var lastAddTime = new Date;
+requestAnimationFrame(function main() {
   var bodyHeight = document.body.scrollHeight;
   var windowHeight = window.innerHeight;
-  document.body.scrollTop = (bodyHeight - windowHeight) / 2;
-  requestAnimationFrame(scroll);
+  var heightRatio = bodyHeight / windowHeight;
+  if (heightRatio > 3) {
+    reset();
+  }
+  var currentTime = new Date;
+  if (currentTime - lastAddTime > delay) {
+    delay = 100 * Math.random();
+    lastAddTime = currentTime;
+    add();
+  }
+  document.documentElement.scrollTop = (bodyHeight - windowHeight) / 2;
+  requestAnimationFrame(main);
 });
-
-reset();
-add();
-setInterval(add, 100);
 
 // Cycle bg, starting at a random color.
 (function(time){
