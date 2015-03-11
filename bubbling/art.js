@@ -32,7 +32,7 @@ requestAnimationFrame(function main() {
     lastAddTime = currentTime;
     add();
   }
-  document.documentElement.scrollTop = (bodyHeight - windowHeight) / 2;
+  $(window).scrollTop((bodyHeight - windowHeight) / 2);
   requestAnimationFrame(main);
 });
 
