@@ -1,3 +1,6 @@
+var $body = $('body');
+var $window = $(window);
+
 // Generate a random DOM.
 // http://twitter.com/cowboy/status/65845594400362496
 var s;
@@ -12,7 +15,7 @@ function add() {
 
 function reset() {
   s = ['body'];
-  $('body').empty();
+  $body.empty();
 }
 
 reset();
@@ -32,7 +35,9 @@ requestAnimationFrame(function main() {
     lastAddTime = currentTime;
     add();
   }
-  $(window).scrollTop((bodyHeight - windowHeight) / 2);
+  var curTop = $window.scrollTop();
+  var newTop = (bodyHeight - windowHeight) / 2;
+  $window.scrollTop(curTop + (newTop - curTop) / 50);
   requestAnimationFrame(main);
 });
 
